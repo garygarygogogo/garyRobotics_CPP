@@ -8,11 +8,11 @@
 LQRControl::LQRControl(int n) : N(n) {}
 
 /**
- * 解代数里卡提方程
- * @param A 状态矩阵A
- * @param B 状态矩阵B
- * @param Q Q为半正定的状态加权矩阵, 通常取为对角阵；Q矩阵元素变大意味着希望跟踪偏差能够快速趋近于零；
- * @param R R为正定的控制加权矩阵，R矩阵元素变大意味着希望控制输入能够尽可能小。
+ * solve Riccati Equation
+ * @param A 
+ * @param B
+ * @param Q the bigger Q, the faster error approach 0；
+ * @param R the bigger R, the smaller control response;
  * @return
  */
 Eigen::MatrixXd LQRControl::calRicatti(Eigen::MatrixXd A, Eigen::MatrixXd B, Eigen::MatrixXd Q, Eigen::MatrixXd R) {
@@ -21,7 +21,7 @@ Eigen::MatrixXd LQRControl::calRicatti(Eigen::MatrixXd A, Eigen::MatrixXd B, Eig
     Eigen::MatrixXd P_;
     for(int i=0;i<N;i++){
         P_ = Q+A.transpose()*P*A-A.transpose()*P*B*(R+B.transpose()*P*B).inverse()*B.transpose()*P*A;
-        //小于预设精度时返回
+        // return if marigin smaller than threshold
         if((P_-P).maxCoeff()<EPS&&(P-P_).maxCoeff()<EPS)break;
         //if((P_-P).cwiseAbs().maxCoeff()<EPS)break;
 
@@ -34,7 +34,7 @@ Eigen::MatrixXd LQRControl::calRicatti(Eigen::MatrixXd A, Eigen::MatrixXd B, Eig
 
 
 /**
- * LQR控制器
+ * LQR
  * @param robot_state
  * @param refer_path
  * @param s0
