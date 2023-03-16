@@ -32,16 +32,16 @@ int main() {
     }
     
     double dT = 0.01;
-    bool useKinematic = true;
+    bool useKinematic = false;
     bool noBeta = false;
     // set time step,initial state
     ugv.setSimDt(dT);
     ugv.setInitPose(0, 0, 0);
-    ugv.setInitSpeed(5.0);
+    ugv.setInitSpeed(10.0);
     ugv.UseKinematicMode(useKinematic);
     ugv.UseSimplify(noBeta);
     double t = 0.0;
-    for(int i = 0; i < 1200*3; ++i)
+    for(int i = 0; i < 1150; ++i)
     {
         plt::clf();
         // Get Vehicle State
@@ -65,7 +65,7 @@ int main() {
     plt::ylim(-2.5,5.0);
     plt::pause(0.01);
     // save figure
-    const char* figname = "./mpc_demo.png";
+    const char* figname = "./dyn_mpc_demo.png";
     std::cout << "Saving result to: " << figname << std::endl;
     plt::save(figname);
     plt::show();
