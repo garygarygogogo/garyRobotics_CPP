@@ -1,10 +1,10 @@
-## Content:
-# PID:
-# MPC:
-# LQR
-# Stanley:
-# Pure_Pursuit:
-# Rear_Wheel_Feedback:
+### Content:
+#### PID:
+#### MPC:
+#### LQR
+#### Stanley:
+#### Pure_Pursuit:
+#### Rear_Wheel_Feedback:
 
 
 ### Dependencies:
