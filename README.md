@@ -16,6 +16,8 @@ OS: Ubuntu 20.04
 - matplotlib
 - cmake
 - Eigen
+- glog
+- qpOASES
 ```
 
 # How to build
