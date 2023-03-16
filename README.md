@@ -63,6 +63,6 @@ Path tracking simulation with pure pursuit steering control.
 
 Ref:
 
-- [Implementation of the Pure Pursuit Path Tracking Algorithm]([http://grauonline.de/wordpress/?page_id=3244](https://www.semanticscholar.org/paper/Implementation-of-the-Pure-Pursuit-Path-Tracking-Coulter/ee756e53b6a68cb2e7a2e5d537a3eff43d793d70)
+- [Implementation of the Pure Pursuit Path Tracking Algorithm](https://www.semanticscholar.org/paper/Implementation-of-the-Pure-Pursuit-Path-Tracking-Coulter/ee756e53b6a68cb2e7a2e5d537a3eff43d793d70)
 
 
