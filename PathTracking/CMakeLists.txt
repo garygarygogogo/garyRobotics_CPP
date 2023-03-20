@@ -29,6 +29,26 @@ target_link_libraries(pid_demo PRIVATE garyRobotics_CPP)
 add_executable(lqr_demo LQR/main.cpp  LQR/LQRControl.cpp utils/MyReferencePath.cpp utils/Robot.cpp)
 target_link_libraries(lqr_demo PRIVATE garyRobotics_CPP)
 
+# MPC -- double integral
+add_executable(doubleint_mpc_demo MPC/DoubleInt.cpp
+                                   MPC/mpc_solver/mpc_solver.cc
+                                   MPC/qp_solver/qp_solver.cc
+                                   MPC/qp_solver/active_set_qp_solver.cc)
+target_link_libraries(doubleint_mpc_demo PRIVATE libglog.so)
+target_link_libraries(doubleint_mpc_demo PRIVATE libqpOASES.so)
+target_link_libraries(doubleint_mpc_demo PRIVATE glfw imgui glad  implot ${OPENGL_LIBRARIES})
+target_link_libraries(doubleint_mpc_demo PRIVATE garyRobotics_CPP)
+
+# MPC -- inverted pendulum
+add_executable(invertedpendulum_mpc_demo MPC/InvertedPendulum.cpp
+        MPC/mpc_solver/mpc_solver.cc
+        MPC/qp_solver/qp_solver.cc
+        MPC/qp_solver/active_set_qp_solver.cc)
+target_link_libraries(invertedpendulum_mpc_demo PRIVATE libglog.so )
+target_link_libraries(invertedpendulum_mpc_demo PRIVATE libqpOASES.so)
+target_link_libraries(invertedpendulum_mpc_demo PRIVATE glfw imgui glad  implot ${OPENGL_LIBRARIES})
+target_link_libraries(invertedpendulum_mpc_demo PRIVATE garyRobotics_CPP)
+
 # MPC -- kinematic
 add_executable(kine_mpc_demo MPC/RobotKinematicControl.cpp
         MPC/mpc_solver/mpc_solver.cc
